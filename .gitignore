@@ -1,0 +1,17 @@
+# Вывод парсера
+output/
+*.json
+*.csv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+*.swp
