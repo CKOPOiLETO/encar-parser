@@ -98,7 +98,8 @@ def parse_vehicle(data: dict, car: CarData, option_map: dict) -> tuple[Optional[
     car.manufacturer = translate_static(manufacturer_ko, MANUFACTURER_MAP)
     car.model        = model_ko   # переведём через API
     car.grade        = grade_en or " ".join(filter(None, [grade_ko, grade_detail_ko]))
-    car.year         = cat.get("formYear")
+    raw_year     = cat.get("formYear")
+    car.year     = int(raw_year) if raw_year else None
 
     adv = data.get("advertisement") or {}
     car.price_won = int(adv.get("price") or 0) * 10_000
